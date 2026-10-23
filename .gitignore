@@ -1,0 +1,30 @@
+# secrets and key material - never commit
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+id_*
+*.ppk
+.env
+.env.*
+*.passwd
+smtp_relay.conf
+dkim.pem
+
+# backups and archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.bak
+*.bak.*
+backup/
+backups/
+
+# local working files
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+node_modules/
