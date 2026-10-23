@@ -1,7 +1,6 @@
 
 # Access Hestia web panel via SSH tunnel (keep opened)
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md)
 

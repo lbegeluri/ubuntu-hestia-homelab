@@ -1,7 +1,6 @@
 
 # example.com — public IP change / router replacement
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md) · DNS table: [DNS records (Cloudflare)](03-dns-cloudflare.md)
 

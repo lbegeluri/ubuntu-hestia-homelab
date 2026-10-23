@@ -1,7 +1,6 @@
 
 # example.com — DNS records (Cloudflare)
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md) · If public IP changes → [Public IP or router change](06-public-ip-or-router-change.md)
 

@@ -1,7 +1,6 @@
 
 # 4G router — virtual servers (port forwards) and settings
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md) · Router replaced / IP changed → [Public IP or router change](06-public-ip-or-router-change.md)
 

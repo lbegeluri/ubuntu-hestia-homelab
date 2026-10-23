@@ -1,7 +1,6 @@
 
 # example.com — HestiaCP web + mail server (hub)
 
-*Last modified: 2026-10-23*
 
 > Personal lab, built 2026-10-23. Everything below was verified working that day:
 > web (example.com), webmail, mail receive, mail send via Brevo relay, iPhone IMAP/SMTP, SSH from PC + iPhone.

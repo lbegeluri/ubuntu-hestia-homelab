@@ -1,7 +1,6 @@
 
 # Brevo SMTP relay for example.com — full setup
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md) · DNS: [DNS records (Cloudflare)](03-dns-cloudflare.md) · Rebuild: [Rebuild from scratch](02-rebuild-from-scratch.md) · Problems: [Troubleshooting](07-troubleshooting.md)
 

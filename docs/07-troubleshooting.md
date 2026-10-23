@@ -1,7 +1,6 @@
 
 # example.com — troubleshooting and gotchas
 
-*Last modified: 2026-10-23*
 
 Part of: [Architecture and inventory](01-architecture-and-inventory.md) · Rebuild: [Rebuild from scratch](02-rebuild-from-scratch.md) · IP/router: [Public IP or router change](06-public-ip-or-router-change.md)
 
