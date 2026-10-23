@@ -5,6 +5,41 @@
 > Personal lab, built 2026-10-23. Everything below was verified working that day:
 > web (example.com), webmail, mail receive, mail send via Brevo relay, iPhone IMAP/SMTP, SSH from PC + iPhone.
 
+## Diagram
+
+```mermaid
+flowchart TB
+    V(["🌍 Visitors"])
+    M(["📨 Other mail servers"])
+    C(["📱 Mail clients"])
+    A(["🧑‍💻 Admin"])
+    CF["☁️ Cloudflare<br/>proxy + TLS"]
+    R{{"📡 4G router<br/>203.0.113.10"}}
+
+    V -->|"HTTPS"| CF
+    CF -->|"443"| R
+    M -->|"25"| R
+    C -->|"993 · 465"| R
+    A -->|"22 · 8083<br/>allow-listed IPs"| R
+    R --> S
+
+    subgraph S["🖥️ Ubuntu server · HestiaCP"]
+        direction LR
+        N["🌐 nginx<br/>PHP-FPM"]
+        E["📮 Exim<br/>spam + AV"]
+        D["📂 Dovecot<br/>Roundcube"]
+        E --> D
+    end
+
+    S -->|"587 + login"| B["📬 Brevo relay"]
+    B --> I(["📥 Recipients"])
+```
+
+| Name | Cloudflare proxy | Used for |
+|---|:---:|---|
+| `example.com`, `www`, `wordpress`, `download` | ☁️ proxied | websites |
+| `host`, `mail`, `webmail` | ⚪ DNS only | server name and panel, mail (MX, IMAP, SMTP), webmail |
+
 ## Notes in this set
 - [Rebuild from scratch](02-rebuild-from-scratch.md) — rebuild everything from zero (PC died / reinstall)
 - [Public IP or router change](06-public-ip-or-router-change.md) — public IP changed or router replaced

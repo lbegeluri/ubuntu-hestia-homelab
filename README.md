@@ -29,7 +29,7 @@ is probably the most useful part.
 
 ## ✨ What you get
 
-| | |
+| Feature | Details |
 |---|---|
 | 🌐 **Websites** | a static site and WordPress, served by Hestia's nginx + PHP-FPM |
 | ✉️ **Mail** | receive on port 25, IMAP/SMTP for clients, Roundcube webmail, SpamAssassin, ClamAV |
@@ -41,23 +41,31 @@ is probably the most useful part.
 ## 🗺️ Architecture
 
 ```mermaid
-flowchart LR
-    V(["🌍 Visitors"]) -->|"HTTPS"| CF["☁️ Cloudflare<br/>proxy + TLS"]
-    CF -->|"443"| R{{"📡 4G router<br/>203.0.113.10"}}
-    M(["📨 Other mail servers"]) -->|"SMTP 25"| R
-    C(["📱 Mail clients"]) -->|"IMAPS 993 / SMTPS 465"| R
-    A(["🧑‍💻 Admin"]) -->|"SSH 22 / panel 8083<br/>allow-listed IPs only"| R
+flowchart TB
+    V(["🌍 Visitors"])
+    M(["📨 Other mail servers"])
+    C(["📱 Mail clients"])
+    A(["🧑‍💻 Admin"])
+    CF["☁️ Cloudflare<br/>proxy + TLS"]
+    R{{"📡 4G router<br/>203.0.113.10"}}
+
+    V -->|"HTTPS"| CF
+    CF -->|"443"| R
+    M -->|"25"| R
+    C -->|"993 · 465"| R
+    A -->|"22 · 8083<br/>allow-listed IPs"| R
     R --> S
 
-    subgraph S["🖥️ Ubuntu server · 192.168.1.50 · HestiaCP"]
-        N["nginx + PHP-FPM<br/>websites, WordPress"]
-        E["Exim<br/>SpamAssassin + ClamAV"]
-        D["Dovecot + Roundcube<br/>mailboxes, webmail"]
+    subgraph S["🖥️ Ubuntu server · HestiaCP"]
+        direction LR
+        N["🌐 nginx<br/>PHP-FPM"]
+        E["📮 Exim<br/>spam + AV"]
+        D["📂 Dovecot<br/>Roundcube"]
         E --> D
     end
 
-    E -->|"587 + login"| B["📬 Brevo relay"]
-    B --> I(["📥 Recipients' mailboxes"])
+    S -->|"587 + login"| B["📬 Brevo relay"]
+    B --> I(["📥 Recipients"])
 ```
 
 <details>
